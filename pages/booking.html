@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIND Dental Clinic</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+<nav class="bg-gradient-to-r from-white via-blue-100 to-blue-200 shadow">
+  <h1 class="text-3xl text-center font-bold">LIND DENTAL CLINIC - Depok</h1>
+</nav>
+
+<main class="py-12">
+  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
+    <form id="booking-form" class="space-y-6">
+      <div>
+        <label for="patient-name" class="block text-sm font-medium text-gray-700">Nama Pasien</label>
+        <input type="text" name="patient-name" id="patient-name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Nama Pasien" required>
+      </div>
+
+      <div>
+        <label for="age" class="block text-sm font-medium text-gray-700">Umur</label>
+        <input type="number" name="age" id="age" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Umur Pasien" required>
+      </div>
+
+      <div>
+        <label for="doctor" class="block text-sm font-medium text-gray-700">Pilih Dokter</label>
+        <select name="doctor" id="doctor" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+          <option value="" disabled selected>Pilih Dokter</option>
+          <option value="Dr. Andi Prasetyo, Sp.KGA">Dr. Andi Prasetyo, Sp.KGA</option>
+          <option value="Dr. Siti Aminah, Sp.Ort">Dr. Siti Aminah, Sp.Ort</option>
+          <option value="Dr. Budi Santoso, M.Gigi">Dr. Budi Santoso, M.Gigi</option>
+          <option value="Dr. Dian Arini, Sp.Perio">Dr. Dian Arini, Sp.Perio</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="service" class="block text-sm font-medium text-gray-700">Pilih Layanan</label>
+        <select name="service" id="service" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+          <option value="" disabled selected>Pilih Layanan</option>
+          <option value="Pemeriksaan Gigi dan Mulut">Pemeriksaan Gigi dan Mulut</option>
+          <option value="Pembersihan Gigi dan Pemutihan Gigi">Pembersihan Gigi dan Pemutihan Gigi</option>
+          <option value="Kawat Gigi (Orthodonti)">Kawat Gigi (Orthodonti)</option>
+          <option value="Perawatan Saluran Akar">Perawatan Saluran Akar</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="complaint" class="block text-sm font-medium text-gray-700">Keluhan</label>
+        <textarea name="complaint" id="complaint" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" rows="4" placeholder="Jelaskan keluhan Anda" required></textarea>
+      </div>
+
+      <div>
+        <label for="date" class="block text-sm font-medium text-gray-700">Tanggal Periksa</label>
+        <input type="date" name="date" id="date" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" required>
+      </div>
+
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700">Telpon/HP</label>
+        <input type="tel" name="phone" id="phone" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Nomor Telepon Anda" required>
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" name="email" id="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Email Anda" required>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Metode Pembayaran</label>
+        <div class="mt-1 space-y-2">
+          <div>
+            <input type="radio" name="payment" value="cash" id="cash" required>
+            <label for="cash" class="text-gray-700">Cash</label>
+          </div>
+          <div>
+            <input type="radio" name="payment" value="transfer" id="transfer" required>
+            <label for="transfer" class="text-gray-700">Transfer</label>
+          </div>
+          <div>
+            <input type="radio" name="payment" value="ewallet" id="ewallet" required>
+            <label for="ewallet" class="text-gray-700">eWallet</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center space-x-4">
+        <button type="submit" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          Submit
+        </button>
+        <button type="reset" class="px-6 py-3 bg-gray-400 text-white font-semibold rounded-md shadow hover:bg-gray-500 focus:ring-2 focus:ring-gray-300 focus:outline-none">
+          Reset
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script>
+    document.getElementById('booking-form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Mencegah pengiriman formulir secara default
+
+        // Ambil nilai dari formulir
+        const patientName = document.getElementById('patient-name').value;
+        const patientPhone = document.getElementById('phone').value;
+        const doctorName = document.getElementById('doctor').value;
+        const service = document.getElementById('service').value;
+        const date = document.getElementById('date').value;
+        const complaint = document.getElementById('complaint').value;
+        const email = document.getElementById('email').value;
+        const payment = document.querySelector('input[name="payment"]:checked').value;
+
+        // Buat objek pemesanan
+        const booking = {
+            patientName,
+            patientPhone,
+            doctorName,
+            service,
+            date,
+            complaint,
+            email,
+            payment
+        };
+
+        // Ambil pemesanan yang ada dari localStorage
+        let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+        bookings.push(booking); // Tambahkan pemesanan baru
+        localStorage.setItem('bookings', JSON.stringify(bookings)); // Simpan kembali ke localStorage
+
+        // Reset formulir
+        this.reset();
+        alert('Pemesanan berhasil diajukan!');
+
+        // Perbarui data dokter di localStorage
+        updateDoctorData(doctorName);
+    });
+
+    function updateDoctorData(doctorName) {
+        const doctorDetails = {
+            "Dr. Andi Prasetyo, Sp.KGA": { gender: "Laki-laki", phone: "081234567890" },
+            "Dr. Siti Aminah, Sp.Ort": { gender: "Perempuan", phone: "081234567891" },
+            "Dr. Budi Santoso, M.Gigi": { gender: "Laki-laki", phone: "081234567892" },
+            "Dr. Dian Arini, Sp.Perio": { gender: "Perempuan", phone: "081234567893" }
+        };
+
+        let doctors = JSON.parse(localStorage.getItem('doctors')) || [];
+        if (!doctors.some(doctor => doctor.name === doctorName)) {
+            const details = doctorDetails[doctorName];
+            doctors.push({ name: doctorName, gender: details.gender, phone: details.phone });
+            localStorage.setItem('doctors', JSON.stringify(doctors));
+        }
+    }
+
+    // Event listener untuk mengubah layanan berdasarkan dokter yang dipilih
+    document.getElementById('doctor').addEventListener('change', function() {
+        const doctorName = this.value;
+        const serviceSelect = document.getElementById('service');
+
+        // Reset pilihan layanan
+        serviceSelect.selectedIndex = 0; // Kembali ke pilihan default
+
+        // Ubah pilihan layanan berdasarkan dokter
+        switch (doctorName) {
+            case "Dr. Andi Prasetyo, Sp.KGA":
+                serviceSelect.value = "Pemeriksaan Gigi dan Mulut";
+                break;
+            case "Dr. Siti Aminah, Sp.Ort":
+                serviceSelect.value = "Kawat Gigi (Orthodonti)";
+                break;
+            case "Dr. Budi Santoso, M.Gigi":
+                serviceSelect.value = "Pembersihan Gigi dan Pemutihan Gigi";
+                break;
+            case "Dr. Dian Arini, Sp.Perio":
+                serviceSelect.value = "Perawatan Saluran Akar";
+                break;
+        }
+
+        // Mengisi nomor telepon dan gender otomatis
+        const doctorDetails = {
+            "Dr. Andi Prasetyo, Sp.KGA": { gender: "Laki-laki", phone: "081234567890" },
+            "Dr. Siti Aminah, Sp.Ort": { gender: "Perempuan", phone: "081234567891" },
+            "Dr. Budi Santoso, M.Gigi": { gender: "Laki-laki", phone: "081234567892" },
+            "Dr. Dian Arini, Sp.Perio": { gender: "Perempuan", phone: "081234567893" }
+        };
+
+        const selectedDoctor = doctorDetails[doctorName];
+        document.getElementById('phone').value = selectedDoctor.phone; // Isi nomor telepon
+    });
+</script>
+
+<footer class="bg-gray-800 py-6">
+  <div class="max-w-4xl mx-auto text-center text-white">
+    <p class="text-sm">&copy; 2025 LIND Dental Clinic. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
